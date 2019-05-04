@@ -1,0 +1,70 @@
+# JDBC 配置(驱动类自动从url的mysql识别,数据源类型自动识别)
+# spring.datasource.druid.url=  属性也可
+
+spring:
+  resources:
+    static-locations: classpath:/static/
+  thymeleaf:
+#    prefix: classpath:/templates/
+    prefix: file:///E:/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  # 开发阶段务必关闭缓存 (=false)
+    cache: false
+  datasource:
+    # 使用阿里的Druid连接池
+#    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    # 填写你数据库的url、登录名、密码和数据库名
+    url: jdbc:mysql://10.1.117.71:3308/test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    #连接池配置(通常来说，只需要修改initialSize、minIdle、maxActive
+    # 如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。分库分表较多的数据库，建议配置为false。removeabandoned不建议在生产环境中打开如果用SQL Server，建议追加配置)
+    druid:
+      # 连接池的配置信息
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ebupt.entity
+
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
+
+#日志设置
+logging:
+  level:
+    root: info
+    #打印sql日志
+    com.ebupt.dao: debug
+    #关闭自动装配的日志
+    org.springframework.boot.autoconfigure: ERROR
+
+
+
