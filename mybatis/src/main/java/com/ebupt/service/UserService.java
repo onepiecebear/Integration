@@ -1,10 +1,13 @@
 package com.ebupt.service;
 
 import com.ebupt.annotation.EnablePaging;
+import com.ebupt.annotation.PageAop;
 import com.ebupt.dao.UserDao;
 import com.ebupt.entity.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,15 +22,19 @@ import java.util.List;
 @Service
 public class UserService {
 
+    private final static Logger logger = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
     private UserDao userDao;
 
     @EnablePaging
-    public  PageInfo<User> findAll(String pageNum,String pageSize){
-        PageHelper.startPage(new Integer(pageNum),new Integer(pageSize));
+    public  Object findAll(String pageNum,String pageSize){
+//        PageHelper.startPage(new Integer(pageNum),new Integer(pageSize));
+        logger.info("findAll()前");
         List<User> list = userDao.findAll();
-        PageInfo<User> result = new PageInfo<>(list);
-        return result;
+        logger.info("findAll()后");
+//        PageInfo<User> result = new PageInfo<>(list);
+        return list;
     }
     public int insertUser(User user){
         return userDao.insertUser(user);

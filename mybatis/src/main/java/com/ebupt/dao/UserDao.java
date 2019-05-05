@@ -1,6 +1,7 @@
 package com.ebupt.dao;
 
 import com.ebupt.entity.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @Description:
  */
 
+@Repository
 public interface UserDao {
 
     public List<User> findAll();

@@ -3,9 +3,11 @@ package com.ebupt.annotation;
 import com.ebupt.controller.UserController;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -39,55 +41,34 @@ public class PageAop {
         logger.info("serviceAspect");
     }
 
-    @Before("serviceAspect()")
-    public  void doBefore(JoinPoint joinPoint) {
-        logger.info("doBefore");
-    }
-
-
-
     @Around(value = "serviceAspect()")
     public Object doAround(ProceedingJoinPoint point) throws  Throwable{
-        logger.info("doAround ");
         Object[] args = point.getArgs();
-        Integer pageNum = 1;
-        Integer pageSize = 10;
-        if(args.length >= 2){
-            pageNum = (Integer)args[args.length -2];
-            pageSize = (Integer)args[args.length - 1];
+        Signature signature = point.getSignature();
+        MethodSignature methodSignature = (MethodSignature) signature;
+        //2.最关键的一步:通过这获取到方法的所有参数名称的字符串数组
+        String[] parameterNames = methodSignature.getParameterNames();
+        String pageNum = null;
+        String pageSize = "10";
+        int pageNumIndex = ArrayUtils.indexOf(parameterNames, "pageNum");
+        if (pageNumIndex != -1) {
+           pageNum = (String)args[pageNumIndex];
         }
-        PageHelper.startPage(pageNum, pageSize);
-        return  point.proceed(args);
-    }
-
-    public Object pagingQuery(ProceedingJoinPoint joinPoint, PagingQuery  pagingQuery) throws Throwable {
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        Class<?> returnType = signature.getMethod().getReturnType();
-        if (returnType == List.class) {
-//            String pageNumParameterName = pagingQuery.pageNumParameterName();
-//            String pageSizeParameterName = pagingQuery.pageSizeParameterName();
-            String pageNumParameterName = "";
-            String pageSizeParameterName = "";
-            //获取request，从中获取分页参数
-            ServletRequestAttributes currentRequestAttributes = (ServletRequestAttributes) RequestContextHolder
-                    .currentRequestAttributes();
-            HttpServletRequest request = currentRequestAttributes.getRequest();
-            String pageNum = request.getParameter(pageNumParameterName);
-            String pageSize = request.getParameter(pageSizeParameterName);
-            if (StringUtils.isNotBlank(pageNum) && StringUtils.isNotBlank(pageSize)) {
-                try {
-                    PageHelper.startPage(Integer.valueOf(pageNum), Integer.valueOf(pageSize));
-                    Object result = joinPoint.proceed();
-                    return new PageInfo<>((List<?>) result);//建议自己实现返回类型，官方自带的返回数据太冗余了
-                } finally {//保证线程变量被清除
-                    if (PageHelper.getLocalPage() != null)
-                        PageHelper.clearPage();
-                }
+        int pageSizeIndex = ArrayUtils.indexOf(parameterNames, "pageSize");
+        if (pageSizeIndex != -1) {
+            pageSize = (String)args[pageSizeIndex];
+        }
+        if (StringUtils.isNotBlank(pageNum) && StringUtils.isNotBlank(pageSize)) {
+            try {
+                PageHelper.startPage(Integer.valueOf(pageNum), Integer.valueOf(pageSize));
+                Object result = point.proceed();
+                return new PageInfo<>((List<?>) result);
+            } finally {//保证线程变量被清除
+                if (PageHelper.getLocalPage() != null)
+                    PageHelper.clearPage();
             }
         }
-        return joinPoint.proceed();
+        return point.proceed();
     }
-
-
 
 }

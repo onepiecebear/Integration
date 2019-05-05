@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -41,13 +42,13 @@ public class UserController {
         return "test";
     }
 
-
+    @ResponseBody
     @RequestMapping(value = "findAll")
-    public PageInfo<User> findAll(){
+    public Object findAll(){
         logger.info("你用的是哪个日志啊？");
-        return userService.findAll("1","1");
+        return userService.findAll("2","2");
     }
-
+    @ResponseBody
     @RequestMapping(value = "insertUser")
     public int insertUser(@RequestBody User user){
 
