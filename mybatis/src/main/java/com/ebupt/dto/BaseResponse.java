@@ -10,7 +10,6 @@ package com.ebupt.dto;
  * 基本响应封装
  */
 public class BaseResponse {
-
     /**
      * 响应码
      */

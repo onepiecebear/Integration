@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface UserDao {
 
-    public List<User> findAll();
-    public int insertUser(User user);
+    List<User> findAll();
+    int insertUser(User user);
 }
