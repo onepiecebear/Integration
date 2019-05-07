@@ -2,18 +2,17 @@ package com.ebupt.controller;
 
 import com.ebupt.entity.User;
 import com.ebupt.service.UserService;
-
-import com.github.pagehelper.PageInfo;
+import com.ebupt.utils.RedisUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * @Author: yushibo
@@ -29,6 +28,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RedisUtil redisUtil;
 
     @RequestMapping(value = "/home")
     public String home(){
@@ -43,13 +44,28 @@ public class UserController {
     }
 
     @ResponseBody
+    @Cacheable(value = "yushibo",key = "methodName")
     @RequestMapping(value = "findAll")
     public Object findAll(){
-        logger.info("你用的是哪个日志啊？");
+
         return userService.findAll("2","2");
     }
+
+    @ResponseBody
+    @RequestMapping(value = "findById/{id}")
+    public String findById(@PathVariable("id") String id){
+        String redisObj = redisUtil.get(id);
+        if(StringUtils.isNotEmpty(redisObj)){
+            return redisObj;
+        }
+        User user = userService.findById(id);
+        redisUtil.set(id,user.toString());
+        return user.toString();
+    }
+
     @ResponseBody
     @RequestMapping(value = "insertUser")
+
     public int insertUser(@RequestBody User user){
 
         return userService.insertUser(user);

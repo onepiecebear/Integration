@@ -9,4 +9,10 @@
     <insert id="insertUser" parameterType="com.ebupt.entity.User" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO user(name,pwd,phone,email) VALUES(#{name},#{pwd},#{phone},#{email})
     </insert>
+
+    <select id="findById"  resultType="com.ebupt.entity.User">
+        SELECT * FROM user WHERE NAME = #{id}
+    </select>
+
+
 </mapper>

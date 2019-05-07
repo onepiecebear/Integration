@@ -1,6 +1,7 @@
 package com.ebupt.dao;
 
 import com.ebupt.entity.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface UserDao {
 
     List<User> findAll();
     int insertUser(User user);
+
+    User findById(@Param(value = "id") String id);
 }

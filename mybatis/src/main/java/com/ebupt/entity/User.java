@@ -1,12 +1,16 @@
 package com.ebupt.entity;
 
+import lombok.Data;
+
+import java.io.Serializable;
+
 /**
  * @Author: yushibo
  * @Date: 2019/5/1 0001 14:32
  * @Description:
  */
-
-public class User {
+@Data
+public class User implements Serializable{
 
     private String id;
     private String name;
