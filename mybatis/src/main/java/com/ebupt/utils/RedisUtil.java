@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @author yushibo
  * @date 2019年4月29日 下午2:25:03
  * @version V1.0
+ * @Description:  Redis工具类
  */
 @Component
 public class RedisUtil {

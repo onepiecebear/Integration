@@ -10,7 +10,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+/**
+ * @Author: yushibo
+ * @Date: 2019/5/3 0003 14:59
+ * @Description: 打印日志记录Http请求的请求参数和响应结果
+ */
 @Aspect
 @Component
 public class HttpAspect {

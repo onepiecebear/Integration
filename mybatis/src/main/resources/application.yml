@@ -73,3 +73,8 @@ logging:
     com.ebupt.dao: debug
     #关闭自动装配的日志
     org.springframework.boot.autoconfigure: ERROR
+
+
+domain.name : 127.0.0.1
+server:
+  port: 8800
