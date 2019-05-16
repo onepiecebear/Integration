@@ -1,12 +1,13 @@
 # JDBC 配置(驱动类自动从url的mysql识别,数据源类型自动识别)
 # spring.datasource.druid.url=  属性也可
-
+server:
+  port: 8800
 spring:
   resources:
-    static-locations: classpath:/static/
+#    static-locations: classpath:/static/
   #设定静态文件路径，js,css等
   mvc:
-    static-path-pattern: /static/**
+#    static-path-pattern: /static/**
   thymeleaf:
     prefix: classpath:/templates/
 #    prefix: file:///E:/
@@ -69,12 +70,12 @@ pagehelper:
 logging:
   level:
     root: info
+
     #打印sql日志
     com.ebupt.dao: debug
     #关闭自动装配的日志
     org.springframework.boot.autoconfigure: ERROR
 
+# (ip:port) 格式
+domain.name : 127.0.0.1:${server.port}
 
-domain.name : 127.0.0.1
-server:
-  port: 8800

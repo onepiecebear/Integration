@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
  * @Date: 2019/5/14 15:32
  * @Description: 获取网络信息的通用工具
  */
-public class NetworkUtil {
+public class NetworkUtils {
 
     /**
-     * 获取url对应的域名或IP
+     * 获取url对应的域名或IP + 端口号
      * @url
      * @return
      */
@@ -33,6 +33,11 @@ public class NetworkUtil {
         return result;
     }
 
+    /**
+     * 获取用户的真实IP
+     * @param request
+     * @return
+     */
     public static String getIpReal(HttpServletRequest request) {
 
         String ip = request.getHeader("X-Forwarded-For");

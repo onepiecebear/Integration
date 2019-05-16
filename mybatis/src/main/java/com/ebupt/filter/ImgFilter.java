@@ -1,6 +1,6 @@
 package com.ebupt.filter;
 
-import com.ebupt.utils.NetworkUtil;
+import com.ebupt.utils.NetworkUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -33,12 +33,13 @@ public class ImgFilter implements Filter{
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String referer = request.getHeader("Referer");
         if (StringUtils.isEmpty(referer)) {
-            request.getRequestDispatcher("/imgs/error.png").forward(request, response);
+            System.out.println("isEmpty");
+            request.getRequestDispatcher("/imgs/error.jpg").forward(request, response);
             return;
         }
-        String domain = NetworkUtil.getDomain(referer);
+        String domain = NetworkUtils.getDomain(referer);
         if (!domain.equals(domainName)) {
-            request.getRequestDispatcher("/imgs/error.png").forward(request, response);
+            request.getRequestDispatcher("/imgs/error.jpg").forward(request, response);
             return;
         }
         filterChain.doFilter(request, response);
