@@ -1,0 +1,36 @@
+log4j.rootLogger = info, stdout, D, I, W, E, Mybatis
+### \u8F93\u51FA\u4FE1\u606F\u5230\u63A7\u5236\u62AC ###
+log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target = System.out
+log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+### \u8F93\u51FAINFO \u7EA7\u522B\u4EE5\u4E0A\u7684\u65E5\u5FD7###
+log4j.appender.I = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.I.File = d://logs/admin/info.log
+log4j.appender.I.Append = true
+log4j.appender.I.Threshold = INFO
+log4j.appender.I.layout = org.apache.log4j.PatternLayout
+log4j.appender.I.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+### \u8F93\u51FAWARN \u7EA7\u522B\u4EE5\u4E0A\u7684\u65E5\u5FD7###
+log4j.appender.W = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.W.File = d://logs/admin/warn.log
+log4j.appender.W.Append = true
+log4j.appender.W.Threshold = WARN
+log4j.appender.W.layout = org.apache.log4j.PatternLayout
+log4j.appender.W.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+### \u8F93\u51FAERROR \u7EA7\u522B\u4EE5\u4E0A\u7684\u65E5\u5FD7###
+log4j.appender.E = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.E.File = d://logs/admin/error.log
+log4j.appender.E.Append = true
+log4j.appender.E.Threshold = ERROR
+log4j.appender.E.layout = org.apache.log4j.PatternLayout
+log4j.appender.E.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+### mybatis ###
+log4j.logger.com.wedding.dao.mapper=TRACE
+log4j.appender.Mybatis=org.apache.log4j.ConsoleAppender
+log4j.appender.Mybatis.layout=org.apache.log4j.PatternLayout
+log4j.appender.Mybatis.layout.ConversionPattern=%5p [%t] - %m%n

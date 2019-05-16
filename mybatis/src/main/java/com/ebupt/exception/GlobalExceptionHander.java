@@ -9,7 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * @Author: yushibo
+ * @Date: 2019/5/3 0003 14:59
+ * @Description: 全局捕获异常
+ */
 @ControllerAdvice
 public class GlobalExceptionHander {
 
@@ -21,6 +25,7 @@ public class GlobalExceptionHander {
                                HttpServletResponse response, Exception e) {
         logger.info("异常错误如下：");
         e.printStackTrace();
+        //TODO 将异常信息写入数据库，用做记录和分析
         if (isAjax(reqest)) {
             return JsonResult.errorException(e.getMessage());
         } else {

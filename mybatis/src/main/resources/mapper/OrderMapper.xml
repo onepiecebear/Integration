@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebupt.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.ebupt.entity.Order">
+        <result column="order_name" jdbcType="VARCHAR" property="orderName"/>
+        <result column="order_des" jdbcType="VARCHAR" property="orderDes"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.ebupt.entity.Order">
+    insert into `order` (order_name, order_des)
+    values (#{orderName,jdbcType=VARCHAR}, #{orderDes,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.ebupt.entity.Order">
+        insert into `order`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderName != null">
+                order_name,
+            </if>
+            <if test="orderDes != null">
+                order_des,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderName != null">
+                #{orderName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderDes != null">
+                #{orderDes,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
