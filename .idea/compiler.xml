@@ -8,18 +8,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Integration" />
+        <module name="celue" />
         <module name="mybatis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api" target="1.8" />
-      <module name="Integration" target="1.5" />
-      <module name="mybatis" target="1.8" />
+      <module name="spring" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="celue" options="-parameters" />
       <module name="mybatis" options="-parameters" />
+      <module name="spring" options="-parameters" />
     </option>
   </component>
 </project>
