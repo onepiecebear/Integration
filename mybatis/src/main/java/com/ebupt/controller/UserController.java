@@ -1,5 +1,7 @@
 package com.ebupt.controller;
 
+import com.ebupt.annotation.GetRedisToken;
+import com.ebupt.annotation.VerifyRedisToken;
 import com.ebupt.dao.OrderMapper;
 import com.ebupt.entity.Order;
 import com.ebupt.entity.User;
@@ -42,22 +44,24 @@ public class UserController {
 
 
     @RequestMapping(value = "/order")
+    @GetRedisToken
     public String order(Model model){
-        String token = redisTokenUtils.getToken();
-        System.out.println(token);
-        model.addAttribute("token",token);
+//        String token = redisTokenUtils.getToken();
+//        System.out.println(token);
+//        model.addAttribute("token",token);
         return "order";
     }
 
     @ResponseBody
     @RequestMapping(value = "/addOrderHtml")
+    @VerifyRedisToken(type = "from")
     public String addOrderHtml(Order orderEntity,String token, HttpServletRequest request) {
-        if (StringUtils.isEmpty(token)) {
-            return "参数错误!";
-        }
-        if (!redisTokenUtils.exisToken(token)) {
-            return "请勿重复提交!";
-        }
+//        if (StringUtils.isEmpty(token)) {
+//            return "参数错误!";
+//        }
+//        if (!redisTokenUtils.exisToken(token)) {
+//            return "请勿重复提交!";
+//        }
         int result = orderMapper.insert(orderEntity);
         return result > 0 ? "添加成功" : "添加失败" + "";
     }

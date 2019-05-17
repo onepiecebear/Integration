@@ -7,11 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * @Author: yushibo
- * @Date: 2019/5/16 15:50
- * @Description:
+ * @Date: 2019/5/17 12:52
+ * @Description: 获取token注解
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface EnableRedisToken {
-    String type();
+public @interface GetRedisToken {
 }
