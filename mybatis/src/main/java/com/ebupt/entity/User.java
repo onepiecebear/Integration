@@ -9,7 +9,6 @@ import java.io.Serializable;
  * @Date: 2019/5/1 0001 14:32
  * @Description:
  */
-@Data
 public class User implements Serializable{
 
     private String id;

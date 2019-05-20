@@ -8,15 +8,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="celue" />
+        <module name="hight_concurrent" />
         <module name="Integration" />
         <module name="mybatis" />
+        <module name="programming_things" />
+        <module name="scan_code" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="api" target="1.8" />
       <module name="celue" target="1.8" />
+      <module name="hight_concurrent" target="1.8" />
       <module name="Integration" target="1.5" />
       <module name="mybatis" target="1.8" />
+      <module name="programming_things" target="1.8" />
+      <module name="scan_code" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

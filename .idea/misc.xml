@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/celue/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/scan_code/pom.xml" />
+        <option value="$PROJECT_DIR$/hight_concurrent/pom.xml" />
+        <option value="$PROJECT_DIR$/programming_things/pom.xml" />
       </list>
     </option>
   </component>
