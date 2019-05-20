@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GlobalExceptionHander {
 
     private final static Logger logger = LoggerFactory.getLogger(GlobalExceptionHander.class);
-    public static final String IMOOC_ERROR_VIEW = "error";
+    public static final String ERROR_VIEW = "errorMessage";
 
     @ExceptionHandler(value = RuntimeException.class)
     public Object errorHandler(HttpServletRequest reqest,
@@ -32,7 +32,7 @@ public class GlobalExceptionHander {
             ModelAndView mav = new ModelAndView();
             mav.addObject("exception", e);
             mav.addObject("url", reqest.getRequestURL());
-            mav.setViewName(IMOOC_ERROR_VIEW);
+            mav.setViewName(ERROR_VIEW);
             return mav;
         }
     }

@@ -1,5 +1,6 @@
 package com.ebupt.filter;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,12 +57,15 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
         System.out.println("getParameterValues");
         System.out.println("getParameterValues --- name ："+name);
         String[] value =super.getParameterValues(name);
-        for (int i = 0; i < value.length; i++) {
-            System.out.println("htmlEscape前:"+value[i]);
-            value[i] = HtmlUtils.htmlEscape(value[i]);
-            System.out.println("htmlEscape后:"+value[i]);
+        if(value != null){
+            for (int i = 0; i < value.length; i++) {
+                System.out.println("htmlEscape前:"+value[i]);
+                value[i] = HtmlUtils.htmlEscape(value[i]);
+                System.out.println("htmlEscape后:"+value[i]);
 
+            }
         }
+
         return value;
     }
 

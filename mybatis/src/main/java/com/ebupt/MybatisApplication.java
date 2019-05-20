@@ -13,17 +13,18 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @SpringBootApplication
 @MapperScan("com.ebupt.dao")
 @EnableCaching
+//过滤器开关
 @ServletComponentScan
 public class MybatisApplication {
 
-	@Bean
-	public FilterRegistrationBean csrfFilter() {
-		FilterRegistrationBean registration = new FilterRegistrationBean();
-		registration.setFilter(new CsrfFilter(new HttpSessionCsrfTokenRepository()));
-		registration.addUrlPatterns("/*");
-		System.out.println("zou csrfFilter");
-		return registration;
-	}
+//	@Bean
+//	public FilterRegistrationBean csrfFilter() {
+//		FilterRegistrationBean registration = new FilterRegistrationBean();
+//		registration.setFilter(new CsrfFilter(new HttpSessionCsrfTokenRepository()));
+//		registration.addUrlPatterns("/*");
+//		System.out.println("zou csrfFilter");
+//		return registration;
+//	}
 
 
 	public static void main(String[] args) {

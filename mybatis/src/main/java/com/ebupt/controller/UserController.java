@@ -73,11 +73,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/test")
-    public String test(@RequestParam("q")String q, Model model){
+    public String test(String q, Model model){
         System.out.println("q:"+q);
         logger.info("页面路径测试");
-        model.addAttribute("xss","<script>alert(1)</script>");
-        model.addAttribute("xss1",q);
         return "test";
     }
 

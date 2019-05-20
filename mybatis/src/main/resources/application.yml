@@ -3,11 +3,9 @@
 server:
   port: 8800
 spring:
-  resources:
-#    static-locations: classpath:/static/
   #设定静态文件路径，js,css等
-  mvc:
-#    static-path-pattern: /static/**
+#  mvc:
+#    static-path-pattern: /static/imgs/
   thymeleaf:
     prefix: classpath:/templates/
 #    prefix: file:///E:/

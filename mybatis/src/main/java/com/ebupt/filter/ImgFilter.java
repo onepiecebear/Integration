@@ -15,7 +15,7 @@ import java.io.IOException;
  * @Date: 2019/5/14 13:56
  * @Description: 图片防盗链
  */
-@WebFilter(filterName = "imgFilter", urlPatterns = "/imgs/*")
+@WebFilter(filterName = "imgFilter", urlPatterns = "/static/imgs/*")
 public class ImgFilter implements Filter{
 
     @Value("${domain.name}")
@@ -34,12 +34,12 @@ public class ImgFilter implements Filter{
         String referer = request.getHeader("Referer");
         if (StringUtils.isEmpty(referer)) {
             System.out.println("isEmpty");
-            request.getRequestDispatcher("/imgs/error.jpg").forward(request, response);
+            request.getRequestDispatcher("/static/imgs/error.jpg").forward(request, response);
             return;
         }
         String domain = NetworkUtils.getDomain(referer);
         if (!domain.equals(domainName)) {
-            request.getRequestDispatcher("/imgs/error.jpg").forward(request, response);
+            request.getRequestDispatcher("/static/imgs/error.jpg").forward(request, response);
             return;
         }
         filterChain.doFilter(request, response);
