@@ -11,6 +11,9 @@
         <option value="$PROJECT_DIR$/hight_concurrent/pom.xml" />
         <option value="$PROJECT_DIR$/programming_things/pom.xml" />
         <option value="$PROJECT_DIR$/soap/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbit_mq/pom.xml" />
+        <option value="$PROJECT_DIR$/alipay/pom.xml" />
+        <option value="$PROJECT_DIR$/balance/pom.xml" />
       </list>
     </option>
   </component>
