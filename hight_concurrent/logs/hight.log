@@ -134,7 +134,7 @@ Caused by: org.springframework.core.convert.ConverterNotFoundException: No conve
 2019-05-20 22:44:58.455  INFO 9084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
 2019-05-20 22:44:58.597  INFO 9084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 repository interfaces.
 2019-05-20 22:44:59.816  INFO 9084 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4444822] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-20 22:44:59.900  WARN 9084 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.ebupt.dao.UserDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2019-05-20 22:44:59.900  WARN 9084 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.UserDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2019-05-20 22:44:59.921  INFO 9084 --- [main] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
@@ -146,7 +146,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field userDao in com.ebupt.service.UserService required a bean of type 'com.ebupt.dao.UserDao' that could not be found.
+Field userDao in com.UserService required a bean of type 'com.UserDao' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -154,7 +154,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.ebupt.dao.UserDao' in your configuration.
+Consider defining a bean of type 'com.UserDao' in your configuration.
 
 2019-05-20 22:45:00.205 ERROR 9084 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@31d7b7bf] to prepare test instance [com.ebupt.HightConcurrentApplicationTests@388b401d]
 
@@ -184,7 +184,7 @@ java.lang.IllegalStateException: Failed to load ApplicationContext
 	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
 	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
 	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.ebupt.dao.UserDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.UserDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
@@ -205,7 +205,7 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
 	... 24 common frames omitted
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.ebupt.dao.UserDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.UserDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1655) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1214) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
@@ -214,7 +214,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 
 2019-05-20 22:47:42.389  INFO 13176 --- [main] c.ebupt.HightConcurrentApplicationTests  : Starting HightConcurrentApplicationTests on CHINA-20190328I with PID 13176 (started by Administrator in E:\IdeaProjects_17\Integration\hight_concurrent)
 2019-05-20 22:47:42.391  INFO 13176 --- [main] c.ebupt.HightConcurrentApplicationTests  : No active profile set, falling back to default profiles: default
-2019-05-20 22:47:43.874  WARN 13176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userDao' and 'com.ebupt.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2019-05-20 22:47:43.874  WARN 13176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userDao' and 'com.UserDao' mapperInterface. Bean already defined with the same name!
 2019-05-20 22:47:43.876  WARN 13176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ebupt.dao]' package. Please check your configuration.
 2019-05-20 22:47:44.270  INFO 13176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
 2019-05-20 22:47:44.280  INFO 13176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
@@ -222,7 +222,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2019-05-20 22:47:45.693  INFO 13176 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5d22304d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 2019-05-20 22:47:47.692  INFO 13176 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-05-20 22:47:49.280  INFO 13176 --- [main] c.ebupt.HightConcurrentApplicationTests  : Started HightConcurrentApplicationTests in 7.879 seconds (JVM running for 9.711)
-2019-05-20 22:47:49.794  INFO 13176 --- [main] com.ebupt.service.UserService            : main----->从DB里面获取数据
+2019-05-20 22:47:49.794  INFO 13176 --- [main] com.UserService            : main----->从DB里面获取数据
 2019-05-20 22:47:49.894  INFO 13176 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2019-05-20 22:47:49.903  WARN 13176 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2019-05-20 22:47:53.403  INFO 13176 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
@@ -231,7 +231,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2019-05-20 22:47:53.699  INFO 13176 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 2019-05-20 22:59:01.497  INFO 2728 --- [main] c.ebupt.HightConcurrentApplicationTests  : Starting HightConcurrentApplicationTests on CHINA-20190328I with PID 2728 (started by Administrator in E:\IdeaProjects_17\Integration\hight_concurrent)
 2019-05-20 22:59:01.500  INFO 2728 --- [main] c.ebupt.HightConcurrentApplicationTests  : No active profile set, falling back to default profiles: default
-2019-05-20 22:59:03.134  WARN 2728 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userDao' and 'com.ebupt.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2019-05-20 22:59:03.134  WARN 2728 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userDao' and 'com.UserDao' mapperInterface. Bean already defined with the same name!
 2019-05-20 22:59:03.136  WARN 2728 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ebupt.dao]' package. Please check your configuration.
 2019-05-20 22:59:03.664  INFO 2728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
 2019-05-20 22:59:03.671  INFO 2728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
@@ -239,56 +239,56 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2019-05-20 22:59:04.974  INFO 2728 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$acd8cedb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 2019-05-20 22:59:07.047  INFO 2728 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-05-20 22:59:08.756  INFO 2728 --- [main] c.ebupt.HightConcurrentApplicationTests  : Started HightConcurrentApplicationTests in 8.215 seconds (JVM running for 10.032)
-2019-05-20 22:59:09.144  INFO 2728 --- [Thread-3] com.ebupt.service.UserService            : Thread-3----->从DB里面获取数据
-2019-05-20 22:59:09.149  INFO 2728 --- [Thread-49] com.ebupt.service.UserService            : Thread-49----->从DB里面获取数据
-2019-05-20 22:59:09.150  INFO 2728 --- [Thread-47] com.ebupt.service.UserService            : Thread-47----->从DB里面获取数据
-2019-05-20 22:59:09.151  INFO 2728 --- [Thread-46] com.ebupt.service.UserService            : Thread-46----->从DB里面获取数据
-2019-05-20 22:59:09.151  INFO 2728 --- [Thread-45] com.ebupt.service.UserService            : Thread-45----->从DB里面获取数据
-2019-05-20 22:59:09.151  INFO 2728 --- [Thread-43] com.ebupt.service.UserService            : Thread-43----->从DB里面获取数据
-2019-05-20 22:59:09.151  INFO 2728 --- [Thread-42] com.ebupt.service.UserService            : Thread-42----->从DB里面获取数据
-2019-05-20 22:59:09.151  INFO 2728 --- [Thread-41] com.ebupt.service.UserService            : Thread-41----->从DB里面获取数据
-2019-05-20 22:59:09.152  INFO 2728 --- [Thread-39] com.ebupt.service.UserService            : Thread-39----->从DB里面获取数据
-2019-05-20 22:59:09.152  INFO 2728 --- [Thread-38] com.ebupt.service.UserService            : Thread-38----->从DB里面获取数据
-2019-05-20 22:59:09.152  INFO 2728 --- [Thread-37] com.ebupt.service.UserService            : Thread-37----->从DB里面获取数据
-2019-05-20 22:59:09.153  INFO 2728 --- [Thread-35] com.ebupt.service.UserService            : Thread-35----->从DB里面获取数据
-2019-05-20 22:59:09.153  INFO 2728 --- [Thread-34] com.ebupt.service.UserService            : Thread-34----->从DB里面获取数据
-2019-05-20 22:59:09.153  INFO 2728 --- [Thread-33] com.ebupt.service.UserService            : Thread-33----->从DB里面获取数据
-2019-05-20 22:59:09.153  INFO 2728 --- [Thread-31] com.ebupt.service.UserService            : Thread-31----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-30] com.ebupt.service.UserService            : Thread-30----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-29] com.ebupt.service.UserService            : Thread-29----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-28] com.ebupt.service.UserService            : Thread-28----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-26] com.ebupt.service.UserService            : Thread-26----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-27] com.ebupt.service.UserService            : Thread-27----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-23] com.ebupt.service.UserService            : Thread-23----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-24] com.ebupt.service.UserService            : Thread-24----->从DB里面获取数据
-2019-05-20 22:59:09.155  INFO 2728 --- [Thread-21] com.ebupt.service.UserService            : Thread-21----->从DB里面获取数据
-2019-05-20 22:59:09.155  INFO 2728 --- [Thread-20] com.ebupt.service.UserService            : Thread-20----->从DB里面获取数据
-2019-05-20 22:59:09.155  INFO 2728 --- [Thread-19] com.ebupt.service.UserService            : Thread-19----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-18] com.ebupt.service.UserService            : Thread-18----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-17] com.ebupt.service.UserService            : Thread-17----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-16] com.ebupt.service.UserService            : Thread-16----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-15] com.ebupt.service.UserService            : Thread-15----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-14] com.ebupt.service.UserService            : Thread-14----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-13] com.ebupt.service.UserService            : Thread-13----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-12] com.ebupt.service.UserService            : Thread-12----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-11] com.ebupt.service.UserService            : Thread-11----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-10] com.ebupt.service.UserService            : Thread-10----->从DB里面获取数据
-2019-05-20 22:59:09.156  INFO 2728 --- [Thread-9] com.ebupt.service.UserService            : Thread-9----->从DB里面获取数据
-2019-05-20 22:59:09.157  INFO 2728 --- [Thread-8] com.ebupt.service.UserService            : Thread-8----->从DB里面获取数据
-2019-05-20 22:59:09.157  INFO 2728 --- [Thread-7] com.ebupt.service.UserService            : Thread-7----->从DB里面获取数据
-2019-05-20 22:59:09.157  INFO 2728 --- [Thread-6] com.ebupt.service.UserService            : Thread-6----->从DB里面获取数据
-2019-05-20 22:59:09.158  INFO 2728 --- [Thread-5] com.ebupt.service.UserService            : Thread-5----->从DB里面获取数据
-2019-05-20 22:59:09.158  INFO 2728 --- [Thread-4] com.ebupt.service.UserService            : Thread-4----->从DB里面获取数据
-2019-05-20 22:59:09.149  INFO 2728 --- [Thread-50] com.ebupt.service.UserService            : Thread-50----->从DB里面获取数据
-2019-05-20 22:59:09.155  INFO 2728 --- [Thread-22] com.ebupt.service.UserService            : Thread-22----->从DB里面获取数据
-2019-05-20 22:59:09.160  INFO 2728 --- [Thread-51] com.ebupt.service.UserService            : Thread-51----->从DB里面获取数据
-2019-05-20 22:59:09.154  INFO 2728 --- [Thread-25] com.ebupt.service.UserService            : Thread-25----->从DB里面获取数据
-2019-05-20 22:59:09.160  INFO 2728 --- [Thread-52] com.ebupt.service.UserService            : Thread-52----->从DB里面获取数据
-2019-05-20 22:59:09.153  INFO 2728 --- [Thread-32] com.ebupt.service.UserService            : Thread-32----->从DB里面获取数据
-2019-05-20 22:59:09.152  INFO 2728 --- [Thread-40] com.ebupt.service.UserService            : Thread-40----->从DB里面获取数据
-2019-05-20 22:59:09.153  INFO 2728 --- [Thread-36] com.ebupt.service.UserService            : Thread-36----->从DB里面获取数据
-2019-05-20 22:59:09.150  INFO 2728 --- [Thread-48] com.ebupt.service.UserService            : Thread-48----->从DB里面获取数据
-2019-05-20 22:59:09.151  INFO 2728 --- [Thread-44] com.ebupt.service.UserService            : Thread-44----->从DB里面获取数据
+2019-05-20 22:59:09.144  INFO 2728 --- [Thread-3] com.UserService            : Thread-3----->从DB里面获取数据
+2019-05-20 22:59:09.149  INFO 2728 --- [Thread-49] com.UserService            : Thread-49----->从DB里面获取数据
+2019-05-20 22:59:09.150  INFO 2728 --- [Thread-47] com.UserService            : Thread-47----->从DB里面获取数据
+2019-05-20 22:59:09.151  INFO 2728 --- [Thread-46] com.UserService            : Thread-46----->从DB里面获取数据
+2019-05-20 22:59:09.151  INFO 2728 --- [Thread-45] com.UserService            : Thread-45----->从DB里面获取数据
+2019-05-20 22:59:09.151  INFO 2728 --- [Thread-43] com.UserService            : Thread-43----->从DB里面获取数据
+2019-05-20 22:59:09.151  INFO 2728 --- [Thread-42] com.UserService            : Thread-42----->从DB里面获取数据
+2019-05-20 22:59:09.151  INFO 2728 --- [Thread-41] com.UserService            : Thread-41----->从DB里面获取数据
+2019-05-20 22:59:09.152  INFO 2728 --- [Thread-39] com.UserService            : Thread-39----->从DB里面获取数据
+2019-05-20 22:59:09.152  INFO 2728 --- [Thread-38] com.UserService            : Thread-38----->从DB里面获取数据
+2019-05-20 22:59:09.152  INFO 2728 --- [Thread-37] com.UserService            : Thread-37----->从DB里面获取数据
+2019-05-20 22:59:09.153  INFO 2728 --- [Thread-35] com.UserService            : Thread-35----->从DB里面获取数据
+2019-05-20 22:59:09.153  INFO 2728 --- [Thread-34] com.UserService            : Thread-34----->从DB里面获取数据
+2019-05-20 22:59:09.153  INFO 2728 --- [Thread-33] com.UserService            : Thread-33----->从DB里面获取数据
+2019-05-20 22:59:09.153  INFO 2728 --- [Thread-31] com.UserService            : Thread-31----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-30] com.UserService            : Thread-30----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-29] com.UserService            : Thread-29----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-28] com.UserService            : Thread-28----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-26] com.UserService            : Thread-26----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-27] com.UserService            : Thread-27----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-23] com.UserService            : Thread-23----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-24] com.UserService            : Thread-24----->从DB里面获取数据
+2019-05-20 22:59:09.155  INFO 2728 --- [Thread-21] com.UserService            : Thread-21----->从DB里面获取数据
+2019-05-20 22:59:09.155  INFO 2728 --- [Thread-20] com.UserService            : Thread-20----->从DB里面获取数据
+2019-05-20 22:59:09.155  INFO 2728 --- [Thread-19] com.UserService            : Thread-19----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-18] com.UserService            : Thread-18----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-17] com.UserService            : Thread-17----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-16] com.UserService            : Thread-16----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-15] com.UserService            : Thread-15----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-14] com.UserService            : Thread-14----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-13] com.UserService            : Thread-13----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-12] com.UserService            : Thread-12----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-11] com.UserService            : Thread-11----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-10] com.UserService            : Thread-10----->从DB里面获取数据
+2019-05-20 22:59:09.156  INFO 2728 --- [Thread-9] com.UserService            : Thread-9----->从DB里面获取数据
+2019-05-20 22:59:09.157  INFO 2728 --- [Thread-8] com.UserService            : Thread-8----->从DB里面获取数据
+2019-05-20 22:59:09.157  INFO 2728 --- [Thread-7] com.UserService            : Thread-7----->从DB里面获取数据
+2019-05-20 22:59:09.157  INFO 2728 --- [Thread-6] com.UserService            : Thread-6----->从DB里面获取数据
+2019-05-20 22:59:09.158  INFO 2728 --- [Thread-5] com.UserService            : Thread-5----->从DB里面获取数据
+2019-05-20 22:59:09.158  INFO 2728 --- [Thread-4] com.UserService            : Thread-4----->从DB里面获取数据
+2019-05-20 22:59:09.149  INFO 2728 --- [Thread-50] com.UserService            : Thread-50----->从DB里面获取数据
+2019-05-20 22:59:09.155  INFO 2728 --- [Thread-22] com.UserService            : Thread-22----->从DB里面获取数据
+2019-05-20 22:59:09.160  INFO 2728 --- [Thread-51] com.UserService            : Thread-51----->从DB里面获取数据
+2019-05-20 22:59:09.154  INFO 2728 --- [Thread-25] com.UserService            : Thread-25----->从DB里面获取数据
+2019-05-20 22:59:09.160  INFO 2728 --- [Thread-52] com.UserService            : Thread-52----->从DB里面获取数据
+2019-05-20 22:59:09.153  INFO 2728 --- [Thread-32] com.UserService            : Thread-32----->从DB里面获取数据
+2019-05-20 22:59:09.152  INFO 2728 --- [Thread-40] com.UserService            : Thread-40----->从DB里面获取数据
+2019-05-20 22:59:09.153  INFO 2728 --- [Thread-36] com.UserService            : Thread-36----->从DB里面获取数据
+2019-05-20 22:59:09.150  INFO 2728 --- [Thread-48] com.UserService            : Thread-48----->从DB里面获取数据
+2019-05-20 22:59:09.151  INFO 2728 --- [Thread-44] com.UserService            : Thread-44----->从DB里面获取数据
 2019-05-20 22:59:09.274  INFO 2728 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2019-05-20 22:59:09.282  WARN 2728 --- [Thread-32] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2019-05-20 22:59:12.723  INFO 2728 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
