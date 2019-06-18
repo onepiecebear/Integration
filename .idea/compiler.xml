@@ -16,6 +16,7 @@
         <module name="programming_things" />
         <module name="programming_things (1)" />
         <module name="rabbit_mq" />
+        <module name="rabbit_mq_meituan" />
         <module name="scan_code" />
         <module name="soap" />
       </profile>
@@ -31,6 +32,7 @@
       <module name="programming_things" target="1.8" />
       <module name="programming_things (1)" target="1.8" />
       <module name="rabbit_mq" target="1.8" />
+      <module name="rabbit_mq_meituan" target="1.8" />
       <module name="scan_code" target="1.8" />
       <module name="soap" target="1.8" />
     </bytecodeTargetLevel>

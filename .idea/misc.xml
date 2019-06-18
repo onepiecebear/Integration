@@ -14,8 +14,19 @@
         <option value="$PROJECT_DIR$/rabbit_mq/pom.xml" />
         <option value="$PROJECT_DIR$/alipay/pom.xml" />
         <option value="$PROJECT_DIR$/balance/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbit_mq_meituan/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/cache_redis/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/rabbit_mq/src/main/resources/application.yml" />
+    <file url="file://$PROJECT_DIR$/rabbit_mq/src/main/resources/generator/generatorConfig.xml" />
+    <file url="file://$PROJECT_DIR$/rabbit_mq/src/main/resources/mapper/OrderMapper.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

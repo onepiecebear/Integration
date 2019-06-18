@@ -43,6 +43,13 @@ public class UserController {
     @Autowired
     private RedisTokenUtils redisTokenUtils;
 
+    @ResponseBody
+    @RequestMapping(value = "/cache")
+    public String cache(Model model){
+//      userService.findById("yushibo");
+        userService.findAll("1","2");
+        return "cache";
+    }
 
     @Autowired
     private RedisTemplate redisTemplate;

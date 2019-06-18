@@ -17,7 +17,7 @@ import javax.jms.Session;
 /**
  * @Author: yushibo
  * @Date: 2019/5/23 18:17
- * @Description:
+ * @Description: 模拟支付宝
  */
 
 @Service("activemq")
@@ -60,7 +60,11 @@ public class OrderService {
         }
     }
 
-    public  void updateMessage(String param){
-
+    public  void updateMessage(String messageId){
+        String sql = "update message set status = ? where message_id=?";
+        int count = jdbcTemplate.update(sql, new Object[]{"confirn",messageId});
+        if (count ==1) {
+            logger.info(messageId+"回调成功");
+        }
     }
 }

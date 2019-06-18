@@ -17,6 +17,17 @@ public class User implements Serializable{
     private String pwd;
     private String email;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
     public void setId(String id) {
         this.id = id;
     }

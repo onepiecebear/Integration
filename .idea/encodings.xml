@@ -3,11 +3,13 @@
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/alipay" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/balance" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cache_redis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/celue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hight_concurrent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mybatis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/programming_things" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbit_mq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rabbit_mq_meituan" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scan_code" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/soap" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
