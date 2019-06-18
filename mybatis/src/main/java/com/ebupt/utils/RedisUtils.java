@@ -1,6 +1,7 @@
 package com.ebupt.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -18,11 +19,11 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisUtils {
 	
-//	@Autowired
-//    private RedisTemplate redisTemplate;
-	
 	@Autowired
-	private StringRedisTemplate redisTemplate;
+    private RedisTemplate redisTemplate;
+	
+//	@Autowired
+//	private StringRedisTemplate redisTemplate;
 	
 	// Key（键），简单的key-value操作
 

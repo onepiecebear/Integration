@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,13 +44,23 @@ public class UserController {
     private RedisTokenUtils redisTokenUtils;
 
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+
     @RequestMapping(value = "/order")
-    @GetRedisToken
-    public String order(Model model){
-//        String token = redisTokenUtils.getToken();
-//        System.out.println(token);
-//        model.addAttribute("token",token);
-        return "order";
+//    @GetRedisToken
+    @ResponseBody
+    public Object order(Model model){
+        User user = new User();
+        user.setName("yushibo");
+//        redisTemplate.opsForValue().set(user,user);
+//        Object o = redisTemplate.opsForValue().get(user);
+
+
+        redisTemplate.opsForValue().set("syuisyuisy",user);
+        Object o = redisTemplate.opsForValue().get("syuisyuisy");
+        return o;
     }
 
     @ResponseBody
